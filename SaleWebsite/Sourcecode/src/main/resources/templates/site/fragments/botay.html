@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+</head>
+
+<body>
+	<footer th:fragment="botay" th:if="${slide}">
+        <div id="wp-slider">
+        	<div style="display: flex; justify-content: space-between;">
+        		<div style="display: flex; flex-direction: row; align-items: center;">
+        			<div style="background-color: rgb(255, 128, 128); width: 7px; height: 40px; margin-right: 5px;"></div>
+        			<h3>LAPTOP</h3>
+        		</div>			
+				<div>
+					<a style="font-weight: bold; font-size: 18px; color: rgb(107, 107, 107); text-decoration: none;" th:href="@{'/home/brand/'+${1}}">            
+	                    <span>View all</span>
+	                    <i class="bi bi-caret-right-fill"></i>
+	                </a>
+				</div>
+			</div>
+			<div class="owl-carousel owl-theme">				
+				<div class="" th:each="item : ${laptop}" style="margin-top: 5px;">
+						<div class="card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgb(199, 199, 199);" th:unless="${item.status==2}">
+							<a th:href="@{'/home/item/'+${item.productId}}"><img class="scaleimg"
+								th:src="@{'/getproduct/'+${item.image}}" alt="..." /></a>
+							<div class="card-body p-0 text-center">
+								<p class="card-title"
+									style="font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden;">
+									<a th:href="@{'/home/item/'+${item.productId}}" th:text="${item.name}"></a>
+								</p>
+								<div th:unless="${item.discount>0}" >
+									<h6 style="color: #E94560;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h6>
+									<p></p>
+								</div>
+								
+								<div th:if="${item.discount>0}">
+									<h6 th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h6>							
+									<p style="font-weight: 500; font-size: 12px; text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></p>
+								</div>
+							</div>									
+							<a th:href="@{'/addCart/'+${item.productId}}" th:if="${item.quantity>0}"
+								style="cursor: pointer; text-decoration: none; margin-top: -10px; padding-bottom: 20px;">
+								<button  type="button" class="btn btn-outline-danger btn-sm">	
+									<i class="bi bi-plus-lg"></i></button>
+							</a>
+							<a th:href="@{'/home/item/'+${item.productId}}" th:unless="${item.quantity>0}"
+								style=" margin-top: -10px; padding-bottom: 20px;">
+								<button  class="btn btn-outline-danger btn-sm">	
+									Liên hệ</button>
+							</a>							
+						</div>
+						<div class="card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgb(199, 199, 199); opacity: 60%;" th:if="${item.status==2}" >
+							<div >
+								<img class="" th:src="@{'/getproduct/'+${item.image}}" alt="..." /></div>
+							<div class="card-body p-0 text-center">
+								<p class="card-title"
+									style="font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden;">
+									<a th:text="${item.name}"></a>
+								</p>
+								<div th:unless="${item.discount>0}" >
+									<h6 style="color: #E94560;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h6>
+									<p></p>
+								</div>
+								
+								<div th:if="${item.discount>0}">
+									<h6 th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h6>							
+									<p style="font-weight: 500; font-size: 12px; text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></p>
+								</div>
+							</div>									
+							
+							<div style=" margin-top: -10px; padding-bottom: 20px;">
+								<div class="btn btn-sm">Hết hàng</div>
+							</div>							
+						</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div style="margin-top: 100px;">
+			<img src="/../assets/slide5.png" width="100%" >
+			
+		</div>
+		
+		<div id="wp-slider" style="margin-top: 100px;">
+        	<div style="display: flex; justify-content: space-between;">
+        		<div style="display: flex; flex-direction: row; align-items: center;">
+        			<div style="background-color: rgb(255, 128, 128); width: 7px; height: 40px; margin-right: 5px;"></div>
+        			<h3>KEYBOARD</h3>
+        		</div>			
+				<div>
+					<a style="font-weight: bold; font-size: 18px; color: rgb(107, 107, 107); text-decoration: none;" th:href="@{'/home/brand/'+${2}}">            
+	                    <span>View all</span>
+	                    <i class="bi bi-caret-right-fill"></i>
+	                </a>
+				</div>
+			</div>
+			<div class="owl-carousel owl-theme">				
+				<div class="" th:each="item : ${keyboard}" style="margin-top: 5px;">
+						<div class="card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgb(199, 199, 199);" th:unless="${item.status==2}">
+							<a th:href="@{'/home/item/'+${item.productId}}"><img class="scaleimg"
+								th:src="@{'/getproduct/'+${item.image}}" alt="..." /></a>
+							<div class="card-body p-0 text-center">
+								<p class="card-title"
+									style="font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden;">
+									<a th:href="@{'/home/item/'+${item.productId}}" th:text="${item.name}"></a>
+								</p>
+								<div th:unless="${item.discount>0}" >
+									<h6 style="color: #E94560;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h6>
+									<p></p>
+								</div>
+								
+								<div th:if="${item.discount>0}">
+									<h6 th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h6>							
+									<p style="font-weight: 500; font-size: 12px; text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></p>
+								</div>
+							</div>									
+							<a th:href="@{'/addCart/'+${item.productId}}" th:if="${item.quantity>0}"
+								style="cursor: pointer; text-decoration: none; margin-top: -10px; padding-bottom: 20px;">
+								<button  type="button" class="btn btn-outline-danger btn-sm">	
+									<i class="bi bi-plus-lg"></i></button>
+							</a>
+							<a th:href="@{/home}" th:unless="${item.quantity>0}"
+								style=" margin-top: -10px; padding-bottom: 20px;">
+								<button  class="btn btn-outline-danger btn-sm">	
+									Liên hệ</button>
+							</a>							
+						</div>
+						<div class="card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgb(199, 199, 199); opacity: 60%;" th:if="${item.status==2}" >
+							<div >
+								<img class="" th:src="@{'/getproduct/'+${item.image}}" alt="..." /></div>
+							<div class="card-body p-0 text-center">
+								<p class="card-title"
+									style="font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden;">
+									<a th:text="${item.name}"></a>
+								</p>
+								<div th:unless="${item.discount>0}" >
+									<h6 style="color: #E94560;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h6>
+									<p></p>
+								</div>
+								
+								<div th:if="${item.discount>0}">
+									<h6 th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h6>							
+									<p style="font-weight: 500; font-size: 12px; text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></p>
+								</div>
+							</div>									
+							
+							<div style=" margin-top: -10px; padding-bottom: 20px;">
+								<div class="btn btn-sm">Hết hàng</div>
+							</div>							
+						</div>
+				</div>
+			</div>
+			
+		</div>
+		
+        <div id="wp-slider" style="margin-top: 100px;">
+        	<div style="display: flex; justify-content: space-between;">
+        		<div style="display: flex; flex-direction: row; align-items: center;">
+        			<div style="background-color: rgb(255, 128, 128); width: 7px; height: 40px; margin-right: 5px;"></div>
+        			<h3>MOUSE</h3>
+        		</div>			
+				<div>
+					<a style="font-weight: bold; font-size: 18px; color: rgb(107, 107, 107); text-decoration: none;" th:href="@{'/home/brand/'+${3}}">            
+	                    <span>View all</span>
+	                    <i class="bi bi-caret-right-fill"></i>
+	                </a>
+				</div>
+			</div>
+			<div class="owl-carousel owl-theme">				
+				<div class="" th:each="item : ${mouse}" style="margin-top: 5px;">
+						<div class="card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgb(199, 199, 199);" th:unless="${item.status==2}">
+							<a th:href="@{'/home/item/'+${item.productId}}"><img class="scaleimg"
+								th:src="@{'/getproduct/'+${item.image}}" alt="..." /></a>
+							<div class="card-body p-0 text-center">
+								<p class="card-title"
+									style="font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden;">
+									<a th:href="@{'/home/item/'+${item.productId}}" th:text="${item.name}"></a>
+								</p>
+								<div th:unless="${item.discount>0}" >
+									<h6 style="color: #E94560;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h6>
+									<p></p>
+								</div>
+								
+								<div th:if="${item.discount>0}">
+									<h6 th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h6>							
+									<p style="font-weight: 500; font-size: 12px; text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></p>
+								</div>
+							</div>									
+							<a th:href="@{'/addCart/'+${item.productId}}" th:if="${item.quantity>0}"
+								style="cursor: pointer; text-decoration: none; margin-top: -10px; padding-bottom: 20px;">
+								<button  type="button" class="btn btn-outline-danger btn-sm">	
+									<i class="bi bi-plus-lg"></i></button>
+							</a>
+							<a th:href="@{/home}" th:unless="${item.quantity>0}"
+								style=" margin-top: -10px; padding-bottom: 20px;">
+								<button  class="btn btn-outline-danger btn-sm">	
+									Liên hệ</button>
+							</a>							
+						</div>
+						<div class="card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgb(199, 199, 199); opacity: 60%;" th:if="${item.status==2}" >
+							<div >
+								<img class="" th:src="@{'/getproduct/'+${item.image}}" alt="..." /></div>
+							<div class="card-body p-0 text-center">
+								<p class="card-title"
+									style="font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden;">
+									<a th:text="${item.name}"></a>
+								</p>
+								<div th:unless="${item.discount>0}" >
+									<h6 style="color: #E94560;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h6>
+									<p></p>
+								</div>
+								
+								<div th:if="${item.discount>0}">
+									<h6 th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h6>							
+									<p style="font-weight: 500; font-size: 12px; text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></p>
+								</div>
+							</div>									
+							
+							<div style=" margin-top: -10px; padding-bottom: 20px;">
+								<div class="btn btn-sm">Hết hàng</div>
+							</div>							
+						</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div style="margin-top: 100px;">
+			<img src="/../assets/slide6.jpg" width="100%" >
+			
+		</div>
+		
+		<div id="wp-slider" style="margin-top: 100px;">
+        	<div style="display: flex; justify-content: space-between;">
+        		<div style="display: flex; flex-direction: row; align-items: center;">
+        			<div style="background-color: rgb(255, 128, 128); width: 7px; height: 40px; margin-right: 5px;"></div>
+        			<h3>HEADPHONES</h3>
+        		</div>			
+				<div>
+					<a style="font-weight: bold; font-size: 18px; color: rgb(107, 107, 107); text-decoration: none;" th:href="@{'/home/brand/'+${4}}">            
+	                    <span>View all</span>
+	                    <i class="bi bi-caret-right-fill"></i>
+	                </a>
+				</div>
+			</div>
+			<div class="owl-carousel owl-theme">				
+				<div class="" th:each="item : ${ram}" style="margin-top: 5px;">
+						<div class="card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgb(199, 199, 199);" th:unless="${item.status==2}">
+							<a th:href="@{'/home/item/'+${item.productId}}"><img class="scaleimg"
+								th:src="@{'/getproduct/'+${item.image}}" alt="..." /></a>
+							<div class="card-body p-0 text-center">
+								<p class="card-title"
+									style="font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden;">
+									<a th:href="@{'/home/item/'+${item.productId}}" th:text="${item.name}"></a>
+								</p>
+								<div th:unless="${item.discount>0}" >
+									<h6 style="color: #E94560;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h6>
+									<p></p>
+								</div>
+								
+								<div th:if="${item.discount>0}">
+									<h6 th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h6>							
+									<p style="font-weight: 500; font-size: 12px; text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></p>
+								</div>
+							</div>									
+							<a th:href="@{'/addCart/'+${item.productId}}" th:if="${item.quantity>0}"
+								style="cursor: pointer; text-decoration: none; margin-top: -10px; padding-bottom: 20px;">
+								<button  type="button" class="btn btn-outline-danger btn-sm">	
+									<i class="bi bi-plus-lg"></i></button>
+							</a>
+							<a th:href="@{/home}" th:unless="${item.quantity>0}"
+								style=" margin-top: -10px; padding-bottom: 20px;">
+								<button  class="btn btn-outline-danger btn-sm">	
+									Liên hệ</button>
+							</a>							
+						</div>
+						<div class="card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgb(199, 199, 199); opacity: 60%;" th:if="${item.status==2}" >
+							<div >
+								<img class="" th:src="@{'/getproduct/'+${item.image}}" alt="..." /></div>
+							<div class="card-body p-0 text-center">
+								<p class="card-title"
+									style="font-weight: bold; font-size: 13px; white-space: nowrap; overflow: hidden;">
+									<a th:text="${item.name}"></a>
+								</p>
+								<div th:unless="${item.discount>0}" >
+									<h6 style="color: #E94560;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h6>
+									<p></p>
+								</div>
+								
+								<div th:if="${item.discount>0}">
+									<h6 th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h6>							
+									<p style="font-weight: 500; font-size: 12px; text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></p>
+								</div>
+							</div>									
+							
+							<div style=" margin-top: -10px; padding-bottom: 20px;">
+								<div class="btn btn-sm">Hết hàng</div>
+							</div>							
+						</div>
+				</div>
+			</div>
+			
+		</div>
+			
+		<div>
+			
+		</div>
+		<div style="display: flex; margin-top: 100px; padding-bottom: 60px; padding-left: 12px;" class="row "> 
+			<div class="col-sm" style="display: flex; align-items: center; justify-content: center; flex-direction: column; border: 1px solid rgb(199, 199, 199); background-color: white; border-radius: 5px;">
+				<div style="font-size: 25px; background-color: rgb(222, 227, 239); height: 60px; width: 60px; border-radius: 30px; display: flex; align-items: center;justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+					<i class="fa-solid fa-truck-fast"></i>
+				</div>
+				<h5 style="padding-left: 20px; padding-right: 20px;">Worldwide Delivery</h5>			
+				<p style="padding-left: 40px; padding-right: 40px;">We offer competitive prices on our 100 million plus product any range.</p>			
+			</div>
+			<div class="col-sm offset-md-1" style="display: flex; align-items: center; justify-content: center; flex-direction: column; border: 1px solid rgb(199, 199, 199); background-color: white; border-radius: 5px;">
+				<div style="font-size: 25px; background-color: rgb(222, 227, 239); height: 60px; width: 60px; border-radius: 30px; display: flex; align-items: center;justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+					<i class='fa-solid fa-id-card'></i>
+				</div>
+				<h5 style="padding-left: 20px; padding-right: 20px;">Safe Payment</h5>			
+				<p style="padding-left: 40px; padding-right: 40px;">We offer competitive prices on our 100 million plus product any range.</p>			
+			</div>
+			<div class="col-sm offset-md-1" style="display: flex; align-items: center; justify-content: center; flex-direction: column; border: 1px solid rgb(199, 199, 199); background-color: white; border-radius: 5px;">
+				<div style="font-size: 25px; background-color: rgb(222, 227, 239); height: 60px; width: 60px; border-radius: 30px; display: flex; align-items: center;justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+					<i class='fa-solid fa-shield'></i>
+				</div>
+				<h5 style="padding-left: 20px; padding-right: 20px;">Shop With Confidence</h5>			
+				<p style="padding-left: 40px; padding-right: 40px;">We offer competitive prices on our 100 million plus product any range.</p>			
+			</div>
+			<div class="col-sm offset-md-1" style="display: flex; align-items: center; justify-content: center; flex-direction: column; border: 1px solid rgb(199, 199, 199); background-color: white; border-radius: 5px;">
+				<div style="font-size: 25px; background-color: rgb(222, 227, 239); height: 60px; width: 60px; border-radius: 30px; display: flex; align-items: center;justify-content: center; margin-top: 20px; margin-bottom: 20px;">
+					<i class='fa-solid fa-headset'></i>
+				</div>
+				<h5 style="padding-left: 20px; padding-right: 20px;">24/7 Support</h5>			
+				<p style="padding-left: 40px; padding-right: 40px;">We offer competitive prices on our 100 million plus product any range.</p>			
+			</div>
+		</div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+   <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+<head>
+
+</head>
+
+<body>
+	<div class="" style="display: flex; flex-direction: row;" th:fragment="slide" th:if="${slide}">
+            <div class="hidden2" style="display: flex; flex: 1;  margin-left: 80px; box-shadow: 1px 1px 5px rgb(190, 188, 188); font-size: 20px; background-color: white;">
+                <div class="list-group list-group-flush">
+                    <a style="font-weight: bold; color: black; text-decoration: none; display: flex; align-items: center; padding: 20px; padding-left: 40px;" th:href="@{'/home/brand/'+${1}}">
+                        <i class="bi bi-laptop" style="margin-right: 30px;"></i>
+                        <span>Laptop</span>
+                    </a>
+                    <a style="font-weight: bold; color: black; text-decoration: none; display: flex; align-items: center; padding: 20px; padding-left: 40px;" th:href="@{'/home/brand/'+${2}}">
+                        <i class="bi bi-keyboard" style="margin-right: 30px;"></i>
+                        <span>Keyboard</span>
+                    </a>
+                    <a style="font-weight: bold; color: black; text-decoration: none; display: flex; align-items: center; padding: 20px; padding-left: 40px;" th:href="@{'/home/brand/'+${3}}">
+                        <i class="bi bi-mouse" style="margin-right: 30px;"></i>
+                        <span>Mouse</span>
+                    </a>
+                    <a style="font-weight: bold; color: black; text-decoration: none; display: flex; align-items: center; padding: 20px; padding-left: 40px;" th:href="@{'/home/brand/'+${4}}">
+                        <i class="bi bi-headset" style="margin-right: 30px;"></i>
+                        <span>Headphones</span>
+                    </a>
+                
+                </div>
+            </div>
+            <div class="slidee" style="display: flex; flex: 4; margin-left: 10px; margin-right: 10px; align-items: center;"> 
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="width: 100%;">
+				  <div class="carousel-indicators">
+				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				 	<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+				  </div>
+				  <div class="carousel-inner" style="width: 100%;">
+				    <div class="carousel-item active" >
+				      <img src="/../assets/slide1.jpg" width="100%">
+				    </div>
+				    <div class="carousel-item">
+				      <img src="/../assets/slide2.jpg" width="100%">
+				    </div>
+				    <div class="carousel-item">
+				      <img src="/../assets/slide3.jpg" width="100%">
+				    </div>
+				    <div class="carousel-item">
+				      <img src="/../assets/slide4.jpg" width="100%">
+				    </div>
+				  </div>
+				  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="visually-hidden">Previous</span>
+				  </button>
+				  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="visually-hidden">Next</span>
+				  </button>
+				</div>
+     		</div>
+     		<div class="hidden2" style="display: flex; flex: 1.5; margin-right: 80px; flex-direction: column;">
+     			<img src="/../assets/hong1.jpg" width="100%" style="margin-bottom: 20px;">
+     			<img src="/../assets/hong2.jpg" width="100%">
+     		</div>
+     		
+	</div>      
+</body>
+<script>
+	
+</script>
+</html>

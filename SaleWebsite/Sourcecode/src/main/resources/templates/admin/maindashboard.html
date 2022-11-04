@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/dashboard.html}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<head>
+</head>
+
+<body>
+	<div layout:fragment="content" class="col-lg-12 my-4 "
+		style="min-height: 600px; border: 1px solid rgba(128, 128, 128, 0.212); background-image: linear-gradient(to right, #ffffff, #bfc7b15e);">
+
+		<div class="col mt-4 mb-4" style="">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 mb-5">
+					<div class="card h-100" style="background-color: #E2357C; color: white; display: flex; flex-direction: row; align-items: center; justify-content: space-around; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+						<div>
+	                    	<i class="bi bi-person-fill" style="font-size: 50px; opacity: 80%;"></i>
+	                	</div>
+						<div>
+		                    <h5 style="opacity: 80%;">All Users</h5>
+		                    <h3>[[${dem1}]]</h3>
+		                    
+		                </div>
+					</div>
+					<div style="background-color: #E2357C; height: 40px; opacity: 70%; display: flex; justify-content: center; align-items: center; color: white; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; font-size: 12px;">		
+						<i class="bi bi-stopwatch"></i>
+						<span style="margin-left: 5px;">Updated:&emsp;</span>
+						<div id="demo"></div>
+	            	</div>
+				</div>
+				<div class="col-lg-3 col-md-6 mb-5">
+					<div class="card h-100" style="background-color: #F1634E; color: white; display: flex; flex-direction: row; align-items: center; justify-content: space-around; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+						<div>
+	                    	<i class="bi bi-list-ol" style="font-size: 50px; opacity: 80%;"></i>
+	                	</div>
+						<div>
+		                    <h5 style="opacity: 80%;">All Categories</h5>
+		                    <h3>[[${dem2}]]</h3>
+		                    
+		                </div>
+					</div>
+					<div style="background-color: #F1634E; height: 40px; opacity: 70%; display: flex; justify-content: center; align-items: center; color: white; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; font-size: 12px;">		
+						<i class="bi bi-stopwatch"></i>
+						<span style="margin-left: 5px;">Updated:&emsp;</span>
+						<div id="demo1"></div>
+	            	</div>
+				</div>
+				
+				<div class="col-lg-3 col-md-6 mb-5">
+					<div class="card h-100" style="background-color: #01A693; color: white; display: flex; flex-direction: row; align-items: center; justify-content: space-around; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+						<div>
+	                    	<i class="bi bi-laptop" style="font-size: 50px; opacity: 80%;"></i>
+	                	</div>
+						<div>
+		                    <h5 style="opacity: 80%;">All Products</h5>
+		                    <h3>[[${dem3}]]</h3>
+		                    
+		                </div>
+					</div>
+					<div style="background-color: #01A693; height: 40px; opacity: 70%; display: flex; justify-content: center; align-items: center; color: white; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; font-size: 12px;">		
+						<i class="bi bi-stopwatch"></i>
+						<span style="margin-left: 5px;">Updated:&emsp;</span>
+						<div id="demo2"></div>
+	            	</div>
+				</div>
+				
+				<div class="col-lg-3 col-md-6 mb-5">
+					<div class="card h-100" style="background-color: #00B8E5; color: white; display: flex; flex-direction: row; align-items: center; justify-content: space-around; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+						<div>
+	                    	<i class="bi bi-cart-check" style="font-size: 50px; opacity: 80%;"></i>
+	                	</div>
+						<div>
+		                    <h5 style="opacity: 80%;">All Orders</h5>
+		                    <h3>[[${dem4}]]</h3>
+		                    
+		                </div>
+					</div>
+					<div style="background-color: #00B8E5; height: 40px; opacity: 70%; display: flex; justify-content: center; align-items: center; color: white; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; font-size: 12px;">		
+						<i class="bi bi-stopwatch"></i>
+						<span style="margin-left: 5px;">Updated:&emsp;</span>
+						<div id="demo3"></div>
+	            	</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="col mb-4">
+            <section class="card">
+                <header class="card-header">
+                    
+                    <h2 class="card-title">Thống kê doanh số</h2>
+                    <div class="row" style="margin-top: 20px">
+                        <div class="col-md-3 mb-2">
+                            <input type="date" id="datepicker" class="form-control">
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <input type="date" id="datepicker2" class="form-control">
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <button type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm"
+                                    value="Lọc kết quả">Lọc kết quả
+                            </button>
+                            <a href="/admin/dashboards" class="btn btn-primary btn-sm">Refesh</a>
+                        </div>
+                    </div>
+                </header>
+                <div class="card-body">
+                    <div class="chart chart-md" id="chart"></div>
+                </div>
+            </section>
+        </div>
+        <div class="col ">
+        	<div class="row">
+        		<div class="col-md-8">
+					<section class="card mb-4">
+		                <header class="card-header" >
+		                    <h4 class="card-title">Top 10 sản phẩm bán chạy nhất</h4>
+		                </header>
+		                <div class="card-body">
+		                    <canvas id="barChart"></canvas>
+		                </div>
+		            </section>
+        		</div>
+        		<div class="col-md-4">
+		            <section class="card">
+		                <header class="card-header">
+		                    <div class="card-actions">
+		                        <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+		                        <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+		                    </div>
+		                    <h4 class="card-title">Order theo danh mục</h4>
+		                </header>
+		                <div class="card-body">
+		                    <canvas id="barChart1"></canvas>
+		                </div>
+		            </section>
+		        </div>
+        	</div>
+        </div>
+	</div>
+</body>
+
+</html>

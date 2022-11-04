@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{site/dashboard.html}">
+
+<head>
+</head>
+
+<body>
+<div layout:fragment="content">
+	<div class="canhletrai" style="display: flex; margin-top: -30px;" th:if="${brand}">
+		<a th:href="@{/home}" style="text-decoration: none; color: black;">Trang chủ  &emsp; >  &emsp;</a>
+		<div th:object="${ahihi}">
+			<p th:text="*{name}"></p>
+		</div>
+	</div>
+	<div style="display: flex;" class="canhletrai" th:if="${brand}">
+		
+			<form class="col-2 mt-4" th:action="@{/home/page}" method="get" style="width: 150px; margin-right: 20px;">
+				<input hidden="hidden" name="name" th:value="${name}" />
+				
+				<select class="form-select" onchange="this.form.submit()" name="procer" >
+					<option th:selected="${procer!=-1}" value="0">Hãng sản xuất</option>
+					<option th:each="item : ${producers}"
+						th:value="${item.producerId}"
+						th:selected="${procer==item.producerId}">[[${item.name}]]</option>
+				</select>
+				<input hidden="hidden" name="page" th:value="0" />
+				
+				<input hidden="hidden" th:value="${brand==null?-1:brand}" name="brand" />
+				
+				
+			</form>
+		
+		
+		<form class="col-2 mt-4" th:action="@{/home/page}" method="get" style="width: 150px">
+				<input hidden="hidden" th:value="${brand==null?-1:brand}" name="brand" />
+				<input hidden="hidden" th:value="${procer==null?-1:procer}" name="procer" />
+				<input hidden="hidden" name="name" th:value="${name}" />
+				<input hidden="hidden" name="page" th:value="${products.number}" />
+				
+				<select class="form-select" onchange="this.form.submit()" name="filter">
+					<option th:selected="${filter==0}" value="0">Mặc định</option>
+					<option th:selected="${filter==1}" value="1">Mới nhất</option>
+					<option th:selected="${filter==2}" value="2">Cũ nhất</option>
+					<option th:selected="${filter==3}" value="3">Giá tăng dần</option>
+					<option th:selected="${filter==4}" value="4">Giá giảm dần</option>
+				</select>
+			</form>
+			
+	</div>	
+
+	<div class="col mt-4 canhletrai canhlephai" th:unless="${slide}">
+		<div class="row">
+			<div class="col-lg-3 col-md-6 mb-4" th:each="item : ${products}">
+				<div class="card h-100" th:unless="${item.status==2}">
+					<a th:href="@{'/home/item/'+${item.productId}}" >
+					<img class="card-img-top scaleimg" th:src="@{'/getproduct/'+${item.image}}" style="display: block;"
+						alt="..." /></a>
+					<div class="card-body">
+						<h4 class="card-title text-center scalename" style="white-space: nowrap; overflow: hidden; margin-top: -50px;">
+							<a th:href="@{'/home/item/'+${item.productId}}"
+								th:text="${item.name}"></a>
+						</h4>
+						<h5 style="color: #E94560;" class="text-center" th:unless="${item.discount>0}" th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h5>
+						<div style="display: flex; justify-content: center;" class="text-center " th:if="${item.discount>0}">
+							<p class="scaleamountblack" style=" text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}"></p>
+							<h5 class="scaleamount" th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h5>
+						
+							<div class="text-center">
+								<small class="badge badge-danger m-0">-[[${#numbers.formatDecimal(item.discount, 1, 'DEFAULT', 0, 'DEFAULT')}+'%']]</small>
+							</div>	
+						</div>				
+						<p class="text-center" style="margin-top: -10px;">
+							<small>(còn [[${item.quantity}]] sản phẩm)</small>
+						</p>
+						
+						<p class="card-text text-center" th:utext="${item.brief}" style="margin-top: -10px;"></p>
+					</div>
+					<a class="card-footer text-center" th:if="${item.quantity>0}"
+						th:href="@{'/addCart/'+${item.productId}}"
+						style="cursor: pointer; text-decoration: none; color: gray;"> <span
+						style="margin: auto;">Thêm vào giỏ hàng <i
+							class="fa fa-shopping-cart"></i></span>
+					</a>
+					
+					<a th:href="@{'/home/item/'+${item.productId}}" class="card-footer text-center" th:unless="${item.quantity>0}"
+						style="background-color: #E94560; color: white; text-decoration: none;">
+						
+						<span style="margin: auto;">Liên hệ</span>
+						  
+					</a>
+					
+				</div>
+				
+				<div class="card h-100" th:if="${item.status==2}" style="opacity: 60%;">
+					<a>
+					<img class="card-img-top" th:src="@{'/getproduct/'+${item.image}}" style="display: block;"
+						alt="..." /></a>
+					<div class="card-body">
+						<h4 class="card-title text-center scalename" style="white-space: nowrap; overflow: hidden; margin-top: -50px;">
+							<a th:text="${item.name}"></a>
+						</h4>
+						<h5  style="color: #E94560;" class="text-center" th:unless="${item.discount>0}" th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'"></h5>
+						<div style="display: flex; justify-content: center;" class="text-center" th:if="${item.discount>0}">
+							<p class="scaleamountblack" style="text-decoration: line-through;" th:text="${#numbers.formatDecimal(item.unitPrice, 1, 'DEFAULT', 0, 'DEFAULT')}"></p>
+							<h5 class="scaleamount" th:text="${#numbers.formatDecimal(item.unitPrice - (item.unitPrice * item.discount/100), 1, 'DEFAULT', 0, 'DEFAULT')}+ ' VNĐ'" style="color: #E94560; white-space: nowrap; overflow: hidden;"></h5>
+						
+							<div th:if="${item.discount>0}" class="text-center">
+								<small class="badge badge-danger m-0">-[[${#numbers.formatDecimal(item.discount, 1, 'DEFAULT', 0, 'DEFAULT')}+'%']]</small>
+							</div>	
+						</div>				
+						<p class="text-center" style="margin-top: -10px;">
+							<small>(còn [[${item.quantity}]] sản phẩm)</small>
+						</p>
+						
+						<p class="card-text text-center" th:utext="${item.brief}" style="margin-top: -10px;"></p>
+					</div>
+					
+					
+					<div class="card-footer text-center">
+						<span style="margin: auto;">Hết hàng</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row text-center" th:if="${products.totalElements==0}" style="min-height: 300px;">
+			<h1 class="m-auto">Không tìm thấy sản phẩm nào phù hợp!</h1>
+		</div>
+		<div th:unless="${products.totalElements==0}">
+			<nav aria-label="Page navigation example"
+				th:if="${products.totalPages>1}">
+				<ul class="pagination" style="justify-content: center;">
+					<li class="page-item"><a class="page-link"
+						th:href="@{'/home/page?page=0&name='+${name==null?'':name}+'&procer='+${procer==null?-1:procer}+'&filter='+${filter==null?0:filter}+'&brand='+${brand==null?-1:brand}}"><i
+							class="fa fa-step-backward"></i></a></li>
+					<li class="page-item"><a class="page-link"
+						th:href="@{'/home/page?page='+${products.number-1<0?0:products.number-1}+'&name='+${name==null?'':name}+'&procer='+${procer==null?-1:procer}+'&filter='+${filter==null?0:filter}+'&brand='+${brand==null?-1:brand}}"><i
+							class="fa fa-chevron-left"></i></a></li>
+	
+					<li th:each="pageNumber : ${pageNumbers}"
+						th:if="${products.totalPages > 1}"
+						th:class="${pageNumber == products.number+1 ? 'page-item active' : 'page-item'}">
+						<a class="page-link"
+						th:href="@{'/home/page?page='+${pageNumber-1}+'&name='+${name==null?'':name}+'&procer='+${procer==null?-1:procer}+'&filter='+${filter==null?0:filter}+'&brand='+${brand==null?-1:brand}}">[[${pageNumber}]]</a>
+					</li>
+	
+					<li class="page-item"><a class="page-link"
+						th:href="@{'/home/page?page='+${products.number+1>products.totalPages-1?products.totalPages-1:products.number+1}+'&name='+${name==null?'':name}+'&procer='+${procer==null?-1:procer}+'&filter='+${filter==null?0:filter}+'&brand='+${brand==null?-1:brand}}"><i
+							class="fa fa-chevron-right"></i></a></li>
+					<li class="page-item"><a class="page-link"
+						th:href="@{'/home/page?page='+${products.totalPages-1}+'&name='+${name==null?'':name}+'&procer='+${procer==null?-1:procer}+'&filter='+${filter==null?0:filter}+'&brand='+${brand==null?-1:brand}}"><i
+							class="fa fa-step-forward"></i></a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	
+	
+</div>
+</body>
+
+</html>

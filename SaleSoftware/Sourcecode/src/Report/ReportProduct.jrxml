@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8a85685-0d9d-494a-8b38-a831d164a073">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="ProdID" class="java.lang.String"/>
+	<field name="ProcerIDp" class="java.lang.String"/>
+	<field name="Classifyp" class="java.lang.String"/>
+	<field name="ProdName" class="java.lang.String"/>
+	<field name="Quantitytotal" class="java.lang.String"/>
+	<field name="Quantity" class="java.lang.String"/>
+	<field name="Price" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<staticText>
+				<reportElement x="161" y="7" width="226" height="31" uuid="f9792961-5e24-49a7-a830-2ccf7480d189"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PUMPKIN'S HOUSE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="65" width="64" height="20" uuid="a7ccf1fa-4e88-4013-b6a2-dca9d0f694b3"/>
+				<text><![CDATA[Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="85" width="64" height="20" uuid="76a790b9-f73e-46fa-8a9b-c158a51634a7"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="105" width="64" height="20" uuid="c5fec5c8-27ef-4c1f-ba0c-0f4625d1cbab"/>
+				<text><![CDATA[Website]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="65" width="92" height="20" uuid="fdef5354-c608-4174-aa45-5fc9531704fd"/>
+				<text><![CDATA[076.386.9084]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="85" width="145" height="20" uuid="3274810b-5929-4a94-b5c8-a893100787b7"/>
+				<text><![CDATA[pumpkinshouse@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="105" width="179" height="20" uuid="f5f563ce-3619-46f2-a2bb-792b645697c2"/>
+				<text><![CDATA[https://shopee.vn/shop/303266604/]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="188" y="0" width="165" height="31" uuid="ca7cb501-eb0f-450f-a4dc-102cc2275f0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LIST PRODUCTS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="33" width="555" height="1" uuid="41521ce0-11a6-449b-b0ef-dcf9737d57da"/>
+			</line>
+			<line>
+				<reportElement x="0" y="4" width="555" height="1" uuid="6b17fe4d-2ba1-4219-bf65-0ac75a70e197"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="9" width="64" height="20" uuid="73041eee-bc24-446d-a912-2ea0088b1764"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ProdID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="9" width="53" height="20" uuid="898a0198-aeda-4d77-94c7-031a384a3ce1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ProcerIDp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="9" width="63" height="20" uuid="4c68bb75-ec1d-4836-ba8f-3a17259c2a84"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Classifyp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="9" width="121" height="20" uuid="ed0cf7f2-60b5-4b32-8434-3fdea28d5b7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ProdName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="9" width="61" height="20" uuid="c6211716-df9e-49fb-bc2d-32e5e8e79881"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Quantitytotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="9" width="86" height="20" uuid="2c881ffc-561b-42ea-be41-e17ad1c9323c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Quantity Remain]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="9" width="85" height="20" uuid="65cf15e9-eaec-4af9-aa3b-5891444c1d55"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="7" y="0" width="64" height="20" uuid="619f4343-a488-4734-b078-b77bbd2c5cd4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ProdID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="0" width="63" height="20" uuid="1b9a542d-8fa1-4df2-b5e3-7825c4beb41e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Classifyp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="0" width="53" height="20" uuid="24038b52-eae3-46e8-94fd-a5100dfccc1d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ProcerIDp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="0" width="61" height="20" uuid="67161b41-9830-46dc-acad-cd5fe038f831"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Quantitytotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="86" height="20" uuid="4f429a84-5c5c-4f94-923c-64bc402d26ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="0" width="85" height="20" uuid="9442271a-27fe-4735-ad9c-8b8eb97cbf33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="0" width="122" height="20" uuid="7a5bc2f5-dade-4eba-8114-ac4b602c2366"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ProdName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

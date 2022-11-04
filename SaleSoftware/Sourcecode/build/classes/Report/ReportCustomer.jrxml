@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8a85685-0d9d-494a-8b38-a831d164a073">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="CusID" class="java.lang.String"/>
+	<field name="CusName" class="java.lang.String"/>
+	<field name="Phone" class="java.lang.String"/>
+	<field name="Address" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<staticText>
+				<reportElement x="161" y="7" width="226" height="31" uuid="f9792961-5e24-49a7-a830-2ccf7480d189"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PUMPKIN'S HOUSE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="65" width="64" height="20" uuid="a7ccf1fa-4e88-4013-b6a2-dca9d0f694b3"/>
+				<text><![CDATA[Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="85" width="64" height="20" uuid="76a790b9-f73e-46fa-8a9b-c158a51634a7"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="105" width="64" height="20" uuid="c5fec5c8-27ef-4c1f-ba0c-0f4625d1cbab"/>
+				<text><![CDATA[Website]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="65" width="92" height="20" uuid="fdef5354-c608-4174-aa45-5fc9531704fd"/>
+				<text><![CDATA[076.386.9084]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="85" width="145" height="20" uuid="3274810b-5929-4a94-b5c8-a893100787b7"/>
+				<text><![CDATA[pumpkinshouse@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="105" width="179" height="20" uuid="f5f563ce-3619-46f2-a2bb-792b645697c2"/>
+				<text><![CDATA[https://shopee.vn/shop/303266604/]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="188" y="0" width="165" height="31" uuid="ca7cb501-eb0f-450f-a4dc-102cc2275f0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LIST CUSTOMER]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="33" width="555" height="1" uuid="41521ce0-11a6-449b-b0ef-dcf9737d57da"/>
+			</line>
+			<line>
+				<reportElement x="0" y="4" width="555" height="1" uuid="6b17fe4d-2ba1-4219-bf65-0ac75a70e197"/>
+			</line>
+			<staticText>
+				<reportElement x="67" y="9" width="58" height="20" uuid="fa059c77-2f2f-4311-8ea9-7fcf5ac090d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CusID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="9" width="129" height="20" uuid="06d6615d-af73-4ae1-9f17-17e32b87739d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CusName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="9" width="100" height="20" uuid="26e058db-d8e9-45e8-9c89-98509d396718"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="9" width="134" height="20" uuid="b10e2d09-8389-460a-8fa6-14eea5f16e63"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="67" y="0" width="57" height="20" uuid="e410aaca-dfb5-433b-8c5e-fdf114c1b797"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CusID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="129" height="20" uuid="06075f7b-e956-4520-8ad6-70178203f053"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CusName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="0" width="100" height="20" uuid="dc135ed5-9ed2-4cd2-a96b-6b29d215a59c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Phone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="354" y="0" width="134" height="20" uuid="69a72011-5da1-4875-8ab5-92682b703a61"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Address}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

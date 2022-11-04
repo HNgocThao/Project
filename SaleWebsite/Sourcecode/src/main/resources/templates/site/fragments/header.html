@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	
+</head>
+
+<body>
+	<nav th:fragment="header" style=" position: relative;">
+        <div class="justify-content-between row" style="background-image: linear-gradient(to right, #391B38, #0D1A37);  
+        	color: white; height: 45px; align-items: center; margin: 0 auto;">
+            <div style="display: flex; justify-content: start;" class="col">
+                <div style="display: flex; flex-direction: row;  align-items: center; white-space: nowrap;" class="canhletrai">
+                    <i class="fas fa-phone-alt"></i>
+                    <label style="margin-left: 10px; margin-right: 89px;">+084 904 924 323</label>
+                </div>
+                <div style="display: flex; align-items: center;" class="">
+                    <i class="fas fa-envelope"></i>
+                    <label style="margin-left: 10px;">nguyensang@gmail.com</label>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: end; white-space: nowrap;"  class="col">
+                <div style="display: flex; align-items: center;" class="canhlephai">
+                    <i class="fas fa-wrench"></i>
+                    <label style="margin-left: 10px;">+084 904 924 323</label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div style="display: flex; justify-content: space-around; align-items: center; height: 100px; background-image: linear-gradient(to right, #391B38, #0D1A37);">
+                <!-- <h6 class="log" style="flex: 1; margin-left: 80px;">
+                    Pumpkin's house
+                </h6> -->
+                <a class="" th:href="@{/home}" style="display: flex; flex: 1; color: white; font-weight: bold; align-items: center;  text-decoration: none; white-space: nowrap;">
+                	<img  src="/../assets/dai.jpg" width="50px" style="  border-radius: 25px; margin-right: 10px;" class="canhletrai" alt="" >
+                    <div class="hidden1 chu">PUMPKIN STORE</div>
+                    
+                </a>
+               
+                <div style="flex: 2">
+                    <form th:action="@{/home/search}" method="post" style="margin-right: 10px;">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Tên sản phẩm" name="name" th:value="${name}"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button style="font-size: 16px;" class="btn btn-outline-secondary">
+                                    <span class="fa fa-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div style="display: flex; justify-content: end; flex: 1; " class="canhlephai">
+                    <div style="height: 50px; width: 50px; border-radius: 25px; background-color: #F3F5F9;display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                        <div class="dropdown">
+                            <a href="#" id="dropdownMenuLink" data-bs-toggle="dropdown">
+                                <i class="bi bi-person-fill" style="font-size: 23px; color: black;  "></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<a class="dropdown-item" th:href="@{/customer/info}" th:if="${isLogin}">Thông tin cá nhân</a> 
+								<a class="dropdown-item" th:href="@{/customer/editProfile}" th:if="${isLogin}">Chỉnh sửa thông tin</a>
+								<a class="dropdown-item" th:href="@{/logout}" th:if="${isLogin}">Đăng xuất</a>
+								<a class="dropdown-item" th:href="@{/login}" th:unless="${isLogin}">Đăng nhập</a>
+                                <a class="dropdown-item" th:href="@{/register}" th:unless="${isLogin}">Đăng kí</a> 
+								<a class="dropdown-item" th:href="@{/forgotPassword}" th:unless="${isLogin}">Quên mật khẩu</a>
+							</div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+
+                    <div style="position: relative; height: 50px; width: 50px; border-radius: 25px; background-color: #F3F5F9;display: flex; align-items: center; justify-content: center;">
+                        <div>
+                            <a th:href="@{/cart}">
+                                <i class="bi bi-cart-plus-fill" style="font-size: 23px; color: black; "></i>
+                            </a></div>
+                        <div>
+                            <small class="badge badge-light" style="border-radius: 15px; font-weight: bold;font-size: 13px; color: rgb(255, 255, 255); position: absolute; margin-left: -4px; background-color:#E94560">[[${totalCartItems}]]</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-sm navbar-light bg-light" style="min-height: 70px; box-shadow: 5px 5px 10px 0px #A342B3;" id="myHeader">
+                <div style="display: flex; width: 180px; padding-top: 5px; padding-bottom: 5px; align-items: center; font-size: 20px; font-weight: bold;  background-color: #341B38; border-radius: 20px;" class="canhletrai navbar-brand">
+                    <a href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" style="text-decoration: none; white-space: nowrap;" >
+	                    <i class="bi bi-list-task" style=" margin-right: 15px; margin-left: 20px; color: white;"></i>
+	                    <span style="color: white;">Danh mục</span>
+                    </a>
+					<div class="dropdown-menu canhletrai" aria-labelledby="dropdownMenuLink">
+						<a class="list-group-item text-center dropdown-item"
+							style="width: 180px;"
+							th:href="@{'/home/brand/'+${item.categoryId}}"
+							th:each="item : ${categories}"
+							th:id="${item.categoryId==brand?'brand':''}"
+							>[[${item.name}]]</a>
+					</div>
+                </div>
+                <button class="navbar-toggler canhlephai" style="color: #A342B3;" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		            <span class="navbar-toggler-icon"></span>
+		         </button>
+                <div class="collapse navbar-collapse canhlephai canhletrai" id="collapsibleNavbar" style=" font-weight: bold; justify-content: flex-end;">
+                    <ul class="navbar-nav">
+		               <li class="nav-item">
+		                  <a class="nav-link list-group-item-action list-group-item-light" style="color: black;" th:href="@{/home}">Trang chủ</a>
+		               </li>
+		               <li class="nav-item">
+		                  <a class="nav-link list-group-item-action list-group-item-light" style="color: black;" th:href="@{/customer/info}">Tài khoản</a>
+		               </li>
+		               <li class="nav-item">
+		                  <a class="nav-link list-group-item-action list-group-item-light" style="color: black;" th:href="@{/cart}">Giỏ hàng</a>
+		               </li>
+		               <li class="nav-item" >
+		                  <a class="nav-link list-group-item-action list-group-item-light" style="color: black;" th:href="@{/logout}">Thoát</a>
+		               </li>
+					</ul>
+                </div>
+            </nav>
+        </div>
+        
+        
+    </nav>
+</body>
+
+</html>

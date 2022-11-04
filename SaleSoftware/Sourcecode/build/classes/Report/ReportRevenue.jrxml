@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8a85685-0d9d-494a-8b38-a831d164a073">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TotalBill" class="java.lang.String"/>
+	<parameter name="TotalRevenue" class="java.lang.String"/>
+	<parameter name="Fromdate" class="java.lang.String"/>
+	<parameter name="Todate" class="java.lang.String"/>
+	<field name="BillID" class="java.lang.String"/>
+	<field name="BillDate" class="java.lang.String"/>
+	<field name="BillTime" class="java.lang.String"/>
+	<field name="TotalAmount" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<staticText>
+				<reportElement x="161" y="7" width="226" height="31" uuid="f9792961-5e24-49a7-a830-2ccf7480d189"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PUMPKIN'S HOUSE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="65" width="64" height="20" uuid="a7ccf1fa-4e88-4013-b6a2-dca9d0f694b3"/>
+				<text><![CDATA[Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="85" width="64" height="20" uuid="76a790b9-f73e-46fa-8a9b-c158a51634a7"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="105" width="64" height="20" uuid="c5fec5c8-27ef-4c1f-ba0c-0f4625d1cbab"/>
+				<text><![CDATA[Website]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="65" width="92" height="20" uuid="fdef5354-c608-4174-aa45-5fc9531704fd"/>
+				<text><![CDATA[076.386.9084]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="85" width="145" height="20" uuid="3274810b-5929-4a94-b5c8-a893100787b7"/>
+				<text><![CDATA[pumpkinshouse@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="105" width="179" height="20" uuid="f5f563ce-3619-46f2-a2bb-792b645697c2"/>
+				<text><![CDATA[https://shopee.vn/shop/303266604/]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="71" y="42" width="64" height="21" uuid="5dad6b24-7e51-412c-b123-3981afb69782"/>
+				<text><![CDATA[From date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="191" y="0" width="160" height="31" uuid="ca7cb501-eb0f-450f-a4dc-102cc2275f0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REVENUE SALE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="63" width="64" height="21" uuid="89746431-7c41-4114-9d10-647b32ca1c52"/>
+				<text><![CDATA[To date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="203" y="41" width="100" height="20" uuid="107a6741-a5b3-410b-a68c-87565481a6c3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Fromdate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="63" width="100" height="20" uuid="4c9a2c72-b7c2-4c4b-a351-37235ec7323c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Todate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<line>
+				<reportElement x="55" y="33" width="446" height="1" uuid="41521ce0-11a6-449b-b0ef-dcf9737d57da"/>
+			</line>
+			<line>
+				<reportElement x="55" y="4" width="446" height="1" uuid="6b17fe4d-2ba1-4219-bf65-0ac75a70e197"/>
+			</line>
+			<staticText>
+				<reportElement x="71" y="9" width="78" height="20" uuid="c1fdba4d-1ef9-415c-9d3c-b60df1e41630"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bill ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="9" width="122" height="20" uuid="f669b97b-3529-474e-9602-48d1646488fa"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bill Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="9" width="77" height="20" uuid="3fee6c87-eed9-45bb-abb3-724787c2222e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bill Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="9" width="139" height="20" uuid="4b7e73c1-af58-4d36-8243-77fa8acbc721"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="71" y="0" width="78" height="20" uuid="ae95eefc-3f5f-4438-9e51-54adbbe033cc"/>
+				<textFieldExpression><![CDATA[$F{BillID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="149" y="0" width="122" height="20" uuid="8bc7f415-1818-460b-8bf8-fc398feae507"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{BillDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="0" width="77" height="20" uuid="6f66b21b-dcdd-4dac-8c56-94a16fdad986"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{BillTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="0" width="141" height="20" uuid="de2dfd1b-c441-4d46-bef8-eb489f705c45"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{TotalAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="55" y="4" width="446" height="1" uuid="8824cc1d-e26d-4a79-a4f1-da3e4794d63f"/>
+			</line>
+			<staticText>
+				<reportElement x="71" y="9" width="47" height="20" uuid="b3f1ff34-6f6f-4783-b232-2d102c08ec0b"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Bill]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="9" width="77" height="20" uuid="8b90943f-dd06-467d-9c95-1e45df42bf34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Revenue]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="118" y="9" width="100" height="20" uuid="9bf944b9-6d0c-49b0-a76d-27e6ca6cf2be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TotalBill}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="9" width="139" height="20" uuid="bcfbcc9d-c76a-4e0b-9c9a-61cd13ca9a79"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TotalRevenue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

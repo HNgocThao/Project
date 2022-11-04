@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+</head>
+
+<body >
+	<nav th:fragment="header" style="background-image: linear-gradient(to right, #355c7d,#6c5b7b, #c06c84); height: 80px; width: 100%; padding-top: 10px;"id="myHeader">
+		<div class="canhletrai canhlephai" style="display: flex; justify-content: space-between; align-items: center;">
+			<div class="">
+				<a  th:href="@{/admin/customers}" style="color: white; text-decoration: none; display: flex; align-items: center;">
+					<img src="/../../assets/dai.jpg" width="50px" style="border-radius: 25px; font-weight: bold;">
+					<h6 style="margin-left: 5px; ">PUMPKIN STORE</h6>
+				</a>
+				
+			</div>
+			<div class="" style="display: flex;">
+			<button style="margin-right: 20px;" class="btn btn-light d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" 
+					aria-controls="offcanvasResponsive"><i class="bi bi-list-ul"></i></button>
+				<div style="height: 40px; width: 40px; border-radius: 20px; background-color: #F3F5F9;display: flex; align-items: center; justify-content: center; margin-right: 50px;">
+                   	<div class="dropdown" >
+                        <a href="#" id="dropdownMenuLink" data-bs-toggle="dropdown">
+                           <i class="bi bi-bell-fill" style="font-size: 15px; color: black;  "></i>
+                        </a>
+                        <div>
+                       		<small th:unless="${demadmin==0}" class="badge badge-light" style="border-radius: 15px; font-weight: bold;font-size: 13px; color: rgb(255, 255, 255); position: absolute;margin-top: -40px; margin-left: 8px; background-color:#E94560">[[${demadmin}]]</small>
+                   		</div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" th:unless="${demadmin==0}">
+							<a class="list-group-item text-center dropdown-item" 
+								style="overflow: hidden; word-wrap: break-word;"
+								th:href="@{/admin/orders}"
+								
+								th:each="item : ${orders}"
+								th:id="${item.orderId}"
+								th:if="${item.status==0}"
+								>Có đơn đặt hàng từ <b>[[${item.customer.name}]]</b> với mã đơn <b style="color: red;">[[${item.orderId}]]</b></a>
+						</div>
+                    </div>              
+                </div>
+				<div style="height: 40px; width: 40px; border-radius: 20px; background-color: #F3F5F9;display: flex; align-items: center; justify-content: center;">
+					<div class="dropdown">
+						<a href="#" id="dropdownMenuLink" data-bs-toggle="dropdown">
+                           <i class="bi bi-person-fill" style="font-size: 20px; color: black;  "></i>
+                        </a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<a class="dropdown-item" th:href="@{/admin/account}">Thông tin cá nhân</a> 
+		<!-- 					<a class="dropdown-item" href="#">Đổi mật khẩu</a> -->
+							<a class="dropdown-item" th:href="@{/admin/account/editProfile}">Chỉnh sửa thông tin</a> 
+							<a class="dropdown-item" th:href="@{/logout}">Đăng xuất</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</body>
+
+</html>
